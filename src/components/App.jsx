@@ -15,12 +15,13 @@ import { useState, useEffect } from 'react';
 
 let totalHits = 0;
 let sumHits = 0;
+let per_page = 12;
 
 export const App = () => {
   const [gallery, setGallery] = useState([]);
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [per_page, setPer_page] = useState(12);
+  // const [per_page, setPer_page] = useState(12);
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [largeImage, setLargeImage] = useState([]);
@@ -49,7 +50,7 @@ export const App = () => {
       }
     };
     fetchData();
-  }, [searchQuery, page, per_page]);
+  }, [searchQuery, page]);
 
   const onSubmit = queryValue => {
     setGallery([]);
